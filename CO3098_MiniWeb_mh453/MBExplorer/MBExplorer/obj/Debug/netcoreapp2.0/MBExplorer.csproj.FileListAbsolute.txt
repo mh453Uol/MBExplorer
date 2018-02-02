@@ -1,0 +1,22 @@
+C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\bin\Debug\netcoreapp2.0\MBExplorer.deps.json
+C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\bin\Debug\netcoreapp2.0\MBExplorer.runtimeconfig.json
+C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\bin\Debug\netcoreapp2.0\MBExplorer.runtimeconfig.dev.json
+C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\bin\Debug\netcoreapp2.0\MBExplorer.dll
+C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\bin\Debug\netcoreapp2.0\MBExplorer.pdb
+C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\obj\Debug\netcoreapp2.0\MBExplorer.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\obj\Debug\netcoreapp2.0\MBExplorer.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\obj\Debug\netcoreapp2.0\MBExplorer.AssemblyInfoInputs.cache
+C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\obj\Debug\netcoreapp2.0\MBExplorer.AssemblyInfo.cs
+C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\obj\Debug\netcoreapp2.0\MBExplorer.dll
+C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\obj\Debug\netcoreapp2.0\MBExplorer.pdb
+C:\Users\User\Documents\University\ThirdYear\WebTechnology\MiniProject\Version2.0\CO3098_MiniWeb_mh453\MBExplorer\MBExplorer\bin\Debug\netcoreapp2.0\MBExplorer.deps.json
+C:\Users\User\Documents\University\ThirdYear\WebTechnology\MiniProject\Version2.0\CO3098_MiniWeb_mh453\MBExplorer\MBExplorer\bin\Debug\netcoreapp2.0\MBExplorer.runtimeconfig.json
+C:\Users\User\Documents\University\ThirdYear\WebTechnology\MiniProject\Version2.0\CO3098_MiniWeb_mh453\MBExplorer\MBExplorer\bin\Debug\netcoreapp2.0\MBExplorer.runtimeconfig.dev.json
+C:\Users\User\Documents\University\ThirdYear\WebTechnology\MiniProject\Version2.0\CO3098_MiniWeb_mh453\MBExplorer\MBExplorer\bin\Debug\netcoreapp2.0\MBExplorer.dll
+C:\Users\User\Documents\University\ThirdYear\WebTechnology\MiniProject\Version2.0\CO3098_MiniWeb_mh453\MBExplorer\MBExplorer\bin\Debug\netcoreapp2.0\MBExplorer.pdb
+C:\Users\User\Documents\University\ThirdYear\WebTechnology\MiniProject\Version2.0\CO3098_MiniWeb_mh453\MBExplorer\MBExplorer\obj\Debug\netcoreapp2.0\MBExplorer.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\University\ThirdYear\WebTechnology\MiniProject\Version2.0\CO3098_MiniWeb_mh453\MBExplorer\MBExplorer\obj\Debug\netcoreapp2.0\MBExplorer.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\University\ThirdYear\WebTechnology\MiniProject\Version2.0\CO3098_MiniWeb_mh453\MBExplorer\MBExplorer\obj\Debug\netcoreapp2.0\MBExplorer.AssemblyInfoInputs.cache
+C:\Users\User\Documents\University\ThirdYear\WebTechnology\MiniProject\Version2.0\CO3098_MiniWeb_mh453\MBExplorer\MBExplorer\obj\Debug\netcoreapp2.0\MBExplorer.AssemblyInfo.cs
+C:\Users\User\Documents\University\ThirdYear\WebTechnology\MiniProject\Version2.0\CO3098_MiniWeb_mh453\MBExplorer\MBExplorer\obj\Debug\netcoreapp2.0\MBExplorer.dll
+C:\Users\User\Documents\University\ThirdYear\WebTechnology\MiniProject\Version2.0\CO3098_MiniWeb_mh453\MBExplorer\MBExplorer\obj\Debug\netcoreapp2.0\MBExplorer.pdb

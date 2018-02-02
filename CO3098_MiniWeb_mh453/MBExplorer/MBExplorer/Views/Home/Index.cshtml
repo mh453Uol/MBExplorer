@@ -1,0 +1,718 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>MBExplorer</h1>
+    <h4>Organize bookmarks by draging and dropping bookmarks.</h4>
+    <h4>Right click on each bookmark to see available operations.</h4>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="js-search" placeholder="Search" />
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Create Modals *@
+<div class="modal fade" id="folderModal" tabindex="-1" role="dialog" aria-labelledby="folderModal" aria-hidden="true">
+    <!-- Start Of Modal -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Add Folder</h4>
+            </div>
+
+            <!-- Start Of Modal Body -->
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="folder">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" name="folder" placeholder="Folder Name" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="parent">Path</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control js-from-parent" name="parent" readonly />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- End Of Modal Body -->
+        </div>
+    </div>
+    <!-- End Of Modal -->
+</div>
+
+<div class="modal fade" id="linkModal" tabindex="-1" role="dialog" aria-labelledby="linkModal" aria-hidden="true">
+    <!-- Start Of Modal -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Add Link</h4>
+            </div>
+
+            <!-- Start Of Modal Body -->
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="title">Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="title" placeholder="Title" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="URL">URL</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="URL" placeholder="URL" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="path">Path</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control js-from-parent" name="path" readonly />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- End Of Modal Body -->
+        </div>
+    </div>
+    <!-- End Of Modal -->
+</div>
+
+<div class="modal fade" id="textFileModal" tabindex="-1" role="dialog" aria-labelledby="textFileModal" aria-hidden="true">
+    <!-- Start Of Modal -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Add Text File</h4>
+            </div>
+
+            <!-- Start Of Modal Body -->
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="title">Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="title" placeholder="Title" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="content">Content</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" rows="10" name="content" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="path">Path</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control js-from-parent" name="path" readonly />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- End Of Modal Body -->
+        </div>
+    </div>
+    <!-- End Of Modal -->
+</div>
+
+<div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="locationModal" aria-hidden="true">
+    <!-- Start Of Modal -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Add Location</h4>
+            </div>
+
+            <!-- Start Of Modal Body -->
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="name">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="name" placeholder="Place Name" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="latitude">Latitude</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" rows="10" name="latitude" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="longitude">Longitude</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" rows="10" name="longitude" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="path">Path</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control js-from-parent" name="path" readonly />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- End Of Modal Body -->
+        </div>
+    </div>
+    <!-- End Of Modal -->
+</div>
+
+@* Delete Modal *@
+<div class="modal fade" id="deleteModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Are you sure you want to delete the bookmark?</h4>
+            </div>
+            <div class="modal-body">
+                <p>Everything inside the <strong><span id="js-current-folder" class="text-danger"></span></strong> folder will be <strong class="text-danger">deleted</strong> ?</p>
+
+                <div class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="path">Path</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control js-from-parent" name="path" readonly />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" id="js-delete">Delete</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@* View Modals *@
+<div class="modal fade" id="js-view-textFileModal" tabindex="-1" role="dialog" aria-labelledby="textFileModal" aria-hidden="true">
+    <!-- Start Of Modal -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">View Text File Details</h4>
+            </div>
+
+            <!-- Start Of Modal Body -->
+            <div class="modal-body">
+
+                <div id="js-textfile-modal-spinner" style="top: 50%;left: 50%;height:100px;" data-spin></div>
+
+                <div id="js-view-textfile-modal-content">
+
+                    <div class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="title">Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="js-title" name="title" placeholder="Title" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="content">Content</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="js-content" rows="10" name="content" readonly></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="path">Path</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control js-from-parent" name="path" readonly />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Of Modal Body -->
+        </div>
+    </div>
+    <!-- End Of Modal -->
+</div>
+
+<div class="modal fade" id="js-view-locationModal" tabindex="-1" role="dialog" aria-labelledby="locationModal" aria-hidden="true">
+    <!-- Start Of Modal -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">View Location Details</h4>
+            </div>
+
+            <!-- Start Of Modal Body -->
+            <div class="modal-body">
+
+                <div id="js-location-modal-spinner" style="top: 50%;left: 50%;height:100px" data-spin></div>
+
+                <div id="js-view-location-modal-content">
+                    <div class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="name">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="js-name" name="name" placeholder="Place Name" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="path">Path</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control js-from-parent" name="path" readonly />
+                            </div>
+                        </div>
+
+                        <div id="map" style="height:300px;width:100%"></div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Of Modal Body -->
+        </div>
+    </div>
+    <!-- End Of Modal -->
+</div>
+
+@* Edit Modals *@
+<div class="modal fade" id="js-edit-folderModal" tabindex="-1" role="dialog" aria-labelledby="folderModal" aria-hidden="true">
+    <!-- Start Of Modal -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Edit Folder</h4>
+            </div>
+
+            <!-- Start Of Modal Body -->
+            <div class="modal-body">
+                <div id="js-edit-folder-modal-spinner" style="top: 50%;left: 50%;height:100px;" data-spin></div>
+
+                <div id="js-edit-folder-modal-content">
+                    <form class="form-horizontal" role="form">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="name">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="js-name" name="name" placeholder="Folder Name" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="parent">Path</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control js-from-parent" name="parent" disabled />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- End Of Modal Body -->
+        </div>
+    </div>
+    <!-- End Of Modal -->
+</div>
+
+<div class="modal fade" id="js-edit-linkModal" tabindex="-1" role="dialog" aria-labelledby="linkModal" aria-hidden="true">
+    <!-- Start Of Modal -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Edit Link</h4>
+            </div>
+
+            <!-- Start Of Modal Body -->
+            <div class="modal-body">
+
+                <div id="js-edit-link-modal-spinner" style="top: 50%;left: 50%;height:100px;" data-spin></div>
+
+                <div id="js-edit-link-modal-content">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="title">Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="title" id="js-name" placeholder="Title" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="URL">URL</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="URL" id="js-URL" placeholder="URL" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="path">Path</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control js-from-parent" name="path" disabled />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- End Of Modal Body -->
+        </div>
+    </div>
+    <!-- End Of Modal -->
+</div>
+
+<div class="modal fade" id="js-edit-textFileModal" tabindex="-1" role="dialog" aria-labelledby="textFileModal" aria-hidden="true">
+    <!-- Start Of Modal -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Edit Link</h4>
+            </div>
+
+            <!-- Start Of Modal Body -->
+            <div class="modal-body">
+
+                <div id="js-edit-textFile-modal-spinner" style="top: 50%;left: 50%;height:100px;" data-spin></div>
+
+                <div id="js-edit-textFile-modal-content">
+
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="title">Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="js-title" name="title" placeholder="Title" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="content">Content</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="js-content" rows="10" name="content" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="path">Path</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control js-from-parent" name="path" disabled />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- End Of Modal Body -->
+            </div>
+        </div>
+    </div>
+    <!-- End Of Modal -->
+</div>
+
+<div class="modal fade" id="js-edit-locationModal" tabindex="-1" role="dialog" aria-labelledby="locationModal" aria-hidden="true">
+    <!-- Start Of Modal -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Edit Location</h4>
+            </div>
+
+            <!-- Start Of Modal Body -->
+            <div class="modal-body">
+                <div id="js-edit-location-modal-spinner" style="top: 50%;left: 50%;height:100px;" data-spin></div>
+
+                <div id="js-edit-location-modal-content">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="name">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="js-name" name="name" placeholder="Place Name" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="latitude">Latitude</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" rows="10" id="js-latitude" name="latitude" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="longitude">Longitude</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" rows="10" id="js-longitude" name="longitude" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="path">Path</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control js-from-parent" name="path" disabled />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- End Of Modal Body -->
+        </div>
+    </div>
+    <!-- End Of Modal -->
+</div>
+
+@* Folder Properties Modal *@
+<div class="modal fade" id="js-folder-propertiesModal" tabindex="-1" role="dialog" aria-labelledby="propertiesModal" aria-hidden="true">
+    <!-- Start Of Modal -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Folder Properties</h4>
+            </div>
+
+            <!-- Start Of Modal Body -->
+            <div class="modal-body">
+                <div id="js-folder-properties-modal-spinner" style="top: 50%;left: 50%;height:100px;" data-spin></div>
+
+                <div id="js-folder-properties-modal-content">
+                    <div class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="name">Direct Sub Folders</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="js-direct-folders" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="latitude">Indirect Sub Folders</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" rows="10" id="js-indirect-folders" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Attributes</label>
+                            <div class="col-sm-9">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="" id="js-readonly-attribute">Readonly</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-10">
+                                <input type="button" value="Save" class="btn btn-primary" id="js-readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Of Modal Body -->
+        </div>
+    </div>
+    <!-- End Of Modal -->
+</div>
+
+@* Confirm Moving Items and Folders *@
+<div class="modal fade" id="js-moveModal" tabindex="-1" role="dialog" aria-labelledby="moveModal" aria-hidden="true">
+    <!-- Start Of Modal -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Are you sure you want to move this bookmark?</h4>
+            </div>
+
+            <div class="modal-body">
+                <p><strong><span id="js-current-bookmark" class="text-danger" data-bookmark-id=""></span></strong> will be moved to <strong class="text-danger"><span id="js-move-to-folder" class="text-danger" data-new-parent-id=""></span></strong> folder ?</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="js-move-close">Close</button>
+                <button type="button" class="btn btn-danger" id="js-move">Move</button>
+            </div>
+            <!-- End Of Modal Body -->
+        </div>
+    </div>
+    <!-- End Of Modal -->
+</div>
+
+@* Read Only Modal *@
+<div class="modal fade" id="js-readonlyModal" tabindex="-1" role="dialog" aria-labelledby="readonly" aria-hidden="true">
+    <!-- Start Of Modal -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Read Only</h4>
+            </div>
+
+            <div class="modal-body">
+                <p>The parent folder is <strong>READ ONLY</strong> so you cant <strong>ADD</strong> or <strong>EDIT</strong> new items (Link, Location and Text File). Please uncheck Read Only attribute under properties menu.</p>
+            </div>
+            <!-- End Of Modal Body -->
+        </div>
+    </div>
+    <!-- End Of Modal -->
+</div>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">Bookmarks</div>
+    <div class="panel-body">
+        <button type="button" class="btn btn-primary btn-block hidden" id="js-root-create-button" onclick="onAddBookmark('RootFolder')">Add Root Folder</button>
+        <div id="js-directory"></div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+
+            getBookmarks(buildTree);
+
+            onFolderAdd();
+            onItemLinkAdd();
+            onItemLocationAdd();
+            onItemTextFileAdd();
+
+            deleteBookmark();
+
+            onFolderEdit();
+            onLinkEdit();
+            onTextFileEdit();
+            onLocationEdit();
+
+            onMoveBookmark();
+            moveBookmark();
+
+            onSearch();
+            onReadOnlyToggle();
+
+            $("#js-move-close").click(function () {
+                getBookmarks(refreshTree);
+            });
+
+        });
+    </script>
+}

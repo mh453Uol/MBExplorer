@@ -1,0 +1,13 @@
+C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer
+--output-path=obj\Debug\netcoreapp2.0\
+--application-name=MBExplorer
+--content-root=C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer
+--file=C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\Views\Home\About.cshtml
+--file=C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\Views\Home\Index.cshtml
+--file=C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\Views\Home\OrganisationChart.cshtml
+--file=C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\Views\Home\TreeMapChart.cshtml
+--file=C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\Views\Shared\Error.cshtml
+--file=C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\Views\Shared\_Layout.cshtml
+--file=C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\Views\Shared\_ValidationScriptsPartial.cshtml
+--file=C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\Views\_ViewImports.cshtml
+--file=C:\Users\User\Documents\Visual Studio 2017\Projects\MBExplorer\MBExplorer\Views\_ViewStart.cshtml
