@@ -1,5 +1,4 @@
-*.dll
-bin/**
-obj/**
-**/Debug/**
-**/Release/**
+/bin/**
+/obj/**
+MBExplorer\bin
+MBExplorer\obj
