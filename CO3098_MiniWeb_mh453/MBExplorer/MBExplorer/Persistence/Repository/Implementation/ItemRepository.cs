@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MBExplorer.Core.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MBExplorer.Persistence.Repository.Implementation
 {
@@ -22,7 +23,7 @@ namespace MBExplorer.Persistence.Repository.Implementation
 
         public Item GetById(int id)
         {
-            return _db.Bookmarks.OfType<Item>().SingleOrDefault(i => i.Id == id);
+            return (Item) _db.Bookmarks.First(i => i.Id == id);
         }
 
         public void Update(Item item)

@@ -37,6 +37,7 @@
     } else {
         showRootButton();
     }
+    $("#js-loading-content").hide();
 }
 
 function showRootButton() {

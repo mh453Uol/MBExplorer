@@ -28,9 +28,9 @@ namespace MBExplorer.WebServices
             BookmarkManager = new BookmarkManager();
         }
 
-        //GET: service/create?folder=Majid&parent=Family
+        //POST: service/create?folder=Majid&parent=Family
         [Route("create")]
-        [HttpGet]
+        [HttpPost]
         public IActionResult CreateFolder(string folder, string parent = null)
         {
             //To create a valid folder parent path must be valid and folder name is unique

@@ -23,8 +23,8 @@ namespace MBExplorer.WebServices
             BookmarkManager = new BookmarkManager();
         }
 
-        // GET: service/textfile/create
-        [HttpGet]
+        // POST: service/textfile/create
+        [HttpPost]
         [Route("create")]
         public IActionResult Create(string title, string content, string path)
         {
